@@ -3,7 +3,7 @@ on:
   push:
     branches: [ "main" ]
 jobs:
-  build java:
+  build-java:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout sources
