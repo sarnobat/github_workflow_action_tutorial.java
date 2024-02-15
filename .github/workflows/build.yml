@@ -24,7 +24,7 @@ jobs:
         echo "JAVA_HOME: $JAVA_HOME"
         java --version
         native-image --version
-        gradle nativeCompile
+        JAVA_HOME=/opt/hostedtoolcache/graalvm-jdk-17_linux-x64_bin/17.0.0/x64/graalvm-jdk-17.0.10+11.1 gradle nativeCompile
     - name: Find all files
       run: find build/
 
