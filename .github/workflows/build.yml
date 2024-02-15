@@ -20,7 +20,6 @@ jobs:
           java --version
           native-image --version
       - name: native image
-        run: |
-          gradle nativeCompile
-    - name: Find all files
-      run: find build/
+        run: gradle nativeCompile
+      - name: Find all files
+        run: find build/
