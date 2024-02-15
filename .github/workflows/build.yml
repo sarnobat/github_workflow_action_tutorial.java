@@ -1,4 +1,5 @@
 name: build-all
+on:
   push:
     branches: [ "main" ]
 jobs:
