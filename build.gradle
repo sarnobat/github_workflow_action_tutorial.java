@@ -26,3 +26,10 @@ application {
     // Define the main class for the application.
     mainClass = 'com.App'
 }
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(11))
+        vendor.set(JvmVendorSpec.matching("Eclipse"))
+    }
+}
