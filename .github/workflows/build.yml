@@ -1,4 +1,4 @@
-name: build java
+name: build java native image
 on:
   push:
     branches: [ "main" ]
@@ -12,8 +12,6 @@ jobs:
       uses: gradle/gradle-build-action@v3
     - name: Build with Gradle
       run: gradle build
-    - name: Find all files
-      run: find build/
     - name: native compile
       uses: graalvm/setup-graalvm@v1
       with:
@@ -26,6 +24,8 @@ jobs:
         echo "JAVA_HOME: $JAVA_HOME"
         java --version
         native-image --version
+    - name: Find all files
+      run: find build/
 
 
 
