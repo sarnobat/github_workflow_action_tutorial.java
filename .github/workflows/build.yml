@@ -13,7 +13,7 @@ jobs:
     - name: native compile
       uses: graalvm/setup-graalvm@v1
       with:
-        version: '22.3.2' # GraalVM version
+        version: '22.2.0' # GraalVM version
         components: 'native-image'
         java-version: '11'
         distribution: 'graalvm' # See 'Options' for all available distributions
