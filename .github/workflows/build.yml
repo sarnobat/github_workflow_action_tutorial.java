@@ -13,11 +13,14 @@ jobs:
           distribution: 'graalvm-community'
           components: 'native-image'
           github-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Example step
+      - name: env
         run: |
           echo "GRAALVM_HOME: $GRAALVM_HOME"
           echo "JAVA_HOME: $JAVA_HOME"
           java --version
           native-image --version
-      - name: Example step using Gradle plugin # https://graalvm.github.io/native-build-tools/latest/gradle-plugin.html
-        run: gradle nativeCompile
+      - name: native image
+        run: |
+          gradle nativeCompile
+    - name: Find all files
+      run: find build/
