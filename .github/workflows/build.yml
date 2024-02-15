@@ -25,9 +25,8 @@ jobs:
         java --version
         gu install native-image
         native-image --version
-        export GRAALVM_HOME=/opt/hostedtoolcache/graalvm-jdk-17_linux-x64_bin/17.0.0/x64/graalvm-jdk-17.0.10+11.1
         ./gradlew -q javaToolchains
-        JAVA_HOME=/usr/lib/jvm/temurin-17-jdk-amd64 GRAALVM_HOME=/opt/hostedtoolcache/graalvm-jdk-17_linux-x64_bin/17.0.0/x64/graalvm-jdk-17.0.10+11.1 ./gradlew nativeCompile
+        ./gradlew nativeCompile
     - name: Find all files
       run: find build/
 
