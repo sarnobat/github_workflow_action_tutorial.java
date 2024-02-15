@@ -1,9 +1,9 @@
-name: build-all
+name: build java
 on:
   push:
     branches: [ "main" ]
 jobs:
-  my-job:
+  build-java:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout sources
@@ -14,4 +14,18 @@ jobs:
       run: gradle build
     - name: Find all files
       run: find build/
+    - name: native compile
+      uses: graalvm/setup-graalvm@v1
+      with:
+          java-version: '21'
+          distribution: 'graalvm' # See 'Options' for all available distributions
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Example step
+      run: |
+        echo "GRAALVM_HOME: $GRAALVM_HOME"
+        echo "JAVA_HOME: $JAVA_HOME"
+        java --version
+        native-image --version
+
+
 
