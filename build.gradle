@@ -26,11 +26,3 @@ application {
     // Define the main class for the application.
     mainClass = 'com.App'
 }
-
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
-//        vendor = JvmVendorSpec.GRAAL_VM
-		vendor.set(JvmVendorSpec.matching("GraalVM")) 
-    }
-}
