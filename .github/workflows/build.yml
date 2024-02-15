@@ -3,7 +3,7 @@ on:
   push:
     branches: [ "main" ]
 jobs:
-  build-java:
+  build java:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout sources
@@ -11,7 +11,7 @@ jobs:
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v3
     - name: Build with Gradle
-      run: gradle build
+      run: gradle nativeCompile
     - name: native compile
       uses: graalvm/setup-graalvm@v1
       with:
