@@ -24,5 +24,7 @@ jobs:
       - name: Find all files
         run: |
             find build/
+      - name: run
+        run: |
             ./build/native/nativeCompile/github_workflow_action_tutorial.java
 
