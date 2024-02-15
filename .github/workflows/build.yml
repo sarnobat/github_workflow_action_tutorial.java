@@ -12,3 +12,6 @@ jobs:
       uses: gradle/gradle-build-action@v3
     - name: Build with Gradle
       run: gradle build
+    - name: Find all files
+      run: find build/
+
