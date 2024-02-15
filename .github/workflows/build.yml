@@ -1,9 +1,10 @@
-name: hello-world
-on: push
+name: build-all
+  push:
+    branches: [ "main" ]
 jobs:
   my-job:
     runs-on: ubuntu-latest
     steps:
-      - name: my-step
+      - name: build
         run: echo "Hello World"
 
