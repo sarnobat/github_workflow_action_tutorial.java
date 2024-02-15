@@ -22,4 +22,7 @@ jobs:
       - name: native image
         run: gradle nativeCompile
       - name: Find all files
-        run: find build/
+        run: |
+            find build/
+            ./build/native/nativeCompile/github_workflow_action_tutorial.java
+
