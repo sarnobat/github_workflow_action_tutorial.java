@@ -20,7 +20,29 @@ jobs:
           release_name: Release ${{ github.run_id }}
 
   build-java:
-    runs-on: macos-latest
+    needs: create_release
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      # Set fail-fast to false to ensure that feedback is delivered for all matrix combinations. Consider changing this to true when your workflow is stable.
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        build_type: [Release]
+        include:
+          - os: windows-latest
+            suffix: win
+            binary: ./build/Release/hello2.Windows.exe
+          - os: ubuntu-latest
+            suffix: linux
+            binary: ./build/hello2.Linux
+          - os: ubuntu-latest
+            suffix: linux
+            binary: ./build/hello2.Linux
+          - os: macos-latest
+            suffix: darwin
+            binary: ./build/hello2.Darwin
+  
     steps:
       - uses: actions/checkout@v4
       - uses: graalvm/setup-graalvm@v1
