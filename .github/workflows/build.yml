@@ -30,14 +30,11 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
         build_type: [Release]
         include:
-          - os: windows-latest
-            suffix: win
-            binary: ./build/hello2.exe
+#          - os: windows-latest
+#            binary: ./build/hello2.exe
           - os: ubuntu-latest
-            suffix: linux
             binary: ./build/hello2.linux
           - os: macos-latest
-            suffix: darwin
             binary: ./build/hello2.darwin
   
     steps:
