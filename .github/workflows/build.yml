@@ -32,16 +32,13 @@ jobs:
         include:
           - os: windows-latest
             suffix: win
-            binary: ./build/Release/hello2.Windows.exe
+            binary: ./build/hello2.exe
           - os: ubuntu-latest
             suffix: linux
-            binary: ./build/hello2.Linux
-          - os: ubuntu-latest
-            suffix: linux
-            binary: ./build/hello2.Linux
+            binary: ./build/hello2.linux
           - os: macos-latest
             suffix: darwin
-            binary: ./build/hello2.Darwin
+            binary: ./build/hello2.darwin
   
     steps:
       - uses: actions/checkout@v4
@@ -62,6 +59,9 @@ jobs:
       - name: Find all files
         run: |
             find build/
+      - name: rename
+        run: |
+            mv ./build//native/nativeCompile/github_workflow_action_tutorial.java  ${{ matrix.binary }}
       - name: run
         run: |
             ./build/native/nativeCompile/github_workflow_action_tutorial.java
