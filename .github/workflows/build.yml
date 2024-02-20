@@ -61,10 +61,10 @@ jobs:
             find build/
       - name: rename
         run: |
-            mv ./build//native/nativeCompile/github_workflow_action_tutorial.java  ${{ matrix.binary }}
+            mv ./build//native/nativeCompile/github_workflow_action_tutorial.java ${{ matrix.binary }}
       - name: run
         run: |
-            ./build/native/nativeCompile/github_workflow_action_tutorial.java
+            ${{ matrix.binary }}
 
       - name: Upload
         uses: actions/upload-release-asset@v1
