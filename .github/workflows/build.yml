@@ -27,11 +27,11 @@ jobs:
       # Set fail-fast to false to ensure that feedback is delivered for all matrix combinations. Consider changing this to true when your workflow is stable.
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest, macos-latest]
         build_type: [Release]
         include:
-#          - os: windows-latest
-#            binary: ./build/hello2.exe
+          - os: windows-latest
+            binary: ./build/hello2.exe
           - os: ubuntu-latest
             binary: ./build/hello2.linux
           - os: macos-latest
