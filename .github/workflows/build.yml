@@ -56,9 +56,9 @@ jobs:
           native-image --version
       - name: native image
         run: gradle nativeCompile
-      - name: Find all files
-        run: |
-            find build
+#      - name: Find all files
+#        run: |
+#            find build
       - name: rename
         run: |
             mv ./build//native/nativeCompile/github_workflow_action_tutorial.java ${{ matrix.binary }}
