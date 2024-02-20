@@ -3,6 +3,22 @@ on:
   push:
     branches: [ "main" ]
 jobs:
+
+  create_release:
+    name: Create release
+    runs-on: ubuntu-latest
+    outputs:
+      upload_url: ${{ steps.create_release.outputs.upload_url }}
+    steps:
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.run_id }}
+          release_name: Release ${{ github.run_id }}
+
   build-java:
     runs-on: macos-latest
     steps:
@@ -28,3 +44,12 @@ jobs:
         run: |
             ./build/native/nativeCompile/github_workflow_action_tutorial.java
 
+      - name: Upload
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.create_release.outputs.upload_url }}
+          asset_path: ${{ matrix.binary }}
+          asset_name: hello.${{ matrix.os }}.${{ matrix.c_compiler }}
+          asset_content_type: application/octet-stream
