@@ -60,6 +60,10 @@ jobs:
         shell: bash
         run: |
             find build
+      - name: Permissions
+        shell: bash
+        run: |
+            chmod a+x ${{ matrix.output }}
       - name: rename
         shell: bash
         run: |
