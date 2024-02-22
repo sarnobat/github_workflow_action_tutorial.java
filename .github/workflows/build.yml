@@ -31,6 +31,7 @@ jobs:
         build_type: [Release]
         include:
           - os: windows-latest
+            shell: bash
             binary: ./build/hello2.exe
           - os: ubuntu-latest
             binary: ./build/hello2.linux
