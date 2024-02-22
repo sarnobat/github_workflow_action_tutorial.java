@@ -31,10 +31,13 @@ jobs:
         build_type: [Release]
         include:
           - os: windows-latest
+            output: ./build/native/nativeCompile/github_workflow_action_tutorial.java.exe
             binary: ./build/hello2.exe
           - os: ubuntu-latest
+            output: ./build/native/nativeCompile/github_workflow_action_tutorial.java
             binary: ./build/hello2.linux
           - os: macos-latest
+            output: ./build/native/nativeCompile/github_workflow_action_tutorial.java
             binary: ./build/hello2.darwin
   
     steps:
@@ -60,7 +63,7 @@ jobs:
       - name: rename
         shell: bash
         run: |
-            mv ./build/native/nativeCompile/github_workflow_action_tutorial.java.exe ${{ matrix.binary }}
+            mv ${{ matrix.output }}  ${{ matrix.binary }}
       - name: run
         run: |
             ${{ matrix.binary }}
