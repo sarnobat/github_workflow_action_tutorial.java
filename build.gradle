@@ -26,3 +26,12 @@ application {
     // Define the main class for the application.
     mainClass = 'com.App'
 }
+
+graalvmNative {
+    binaries {
+        main {
+            imageName.set('fortuneteller') 
+            buildArgs.add('-march=compatibility') 
+        }
+    }
+}
