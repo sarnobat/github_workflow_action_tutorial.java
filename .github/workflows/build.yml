@@ -31,7 +31,6 @@ jobs:
         build_type: [Release]
         include:
           - os: windows-latest
-            shell: bash
             binary: ./build/hello2.exe
           - os: ubuntu-latest
             binary: ./build/hello2.linux
@@ -55,6 +54,7 @@ jobs:
       - name: native image
         run: gradle nativeCompile
       - name: Find all files
+        shell: bash
         run: |
             find build
       - name: rename
