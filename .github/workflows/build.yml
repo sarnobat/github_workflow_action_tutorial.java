@@ -32,13 +32,13 @@ jobs:
         include:
           - os: windows-latest
             output: ./build/native/nativeCompile/github_workflow_action_tutorial.java.exe
-            binary: ./build/hello2.exe
+            binary: hello2.exe
           - os: ubuntu-latest
             output: ./build/native/nativeCompile/github_workflow_action_tutorial.java
-            binary: ./build/hello2.linux
+            binary: hello2.linux
           - os: macos-latest
             output: ./build/native/nativeCompile/github_workflow_action_tutorial.java
-            binary: ./build/hello2.darwin
+            binary: hello2.darwin
   
     steps:
       - uses: actions/checkout@v4
