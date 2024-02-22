@@ -30,7 +30,6 @@ application {
 graalvmNative {
     binaries {
         main {
-            imageName.set('fortuneteller') 
             buildArgs.add('-march=compatibility') 
         }
     }
