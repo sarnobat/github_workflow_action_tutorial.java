@@ -58,8 +58,9 @@ jobs:
         run: |
             find build
       - name: rename
+        shell: bash
         run: |
-            mv ./build/native/nativeCompile/github_workflow_action_tutorial.java ${{ matrix.binary }}
+            mv ./build/native/nativeCompile/github_workflow_action_tutorial.java.exe ${{ matrix.binary }}
       - name: run
         run: |
             ${{ matrix.binary }}
