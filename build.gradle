@@ -26,3 +26,11 @@ application {
     // Define the main class for the application.
     mainClass = 'com.App'
 }
+
+graalvmNative {
+    binaries {
+        main {
+            buildArgs.add('-march=compatibility') 
+        }
+    }
+}
